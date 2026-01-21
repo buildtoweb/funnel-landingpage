@@ -823,15 +823,15 @@
                 <div class="form-grid">
                     <div class="form-field">
                         <label for="vorname">Vorname</label>
-                        <input type="text" id="vorname" name="vorname" required>
+                        <input type="text" id="vorname" name="firstname" required>
                     </div>
                     <div class="form-field">
                         <label for="nachname">Nachname</label>
-                        <input type="text" id="nachname" name="nachname" required>
+                        <input type="text" id="nachname" name="lastname" required>
                     </div>
                     <div class="form-field">
                         <label for="telefonnummer">Telefonnummer</label>
-                        <input type="tel" id="telefonnummer" name="telefonnummer" required>
+                        <input type="tel" id="telefonnummer" name="phone" required>
                     </div>
                     <label class="form-consent">
                         <input type="checkbox" id="consent" required>
@@ -851,7 +851,7 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://inlift.at/datenschutz">Datenschutz</a>
+                <a href="https://inlift.at/impressum">Datenschutz</a>
             </div>
             <p class="footer-copy">© 2026 InLift Media e.U. Alle Rechte vorbehalten.</p>
             <!-- Anfang des HubSpot-Code-Snippets -->
@@ -910,15 +910,21 @@
             formError.hidden = true;
 
             const formData = new FormData(leadForm);
+            const getCookie = (name) => {
+                const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                return match ? decodeURIComponent(match[2]) : null;
+            };
+
             const payload = {
                 fields: [
-                    { name: 'vorname', value: formData.get('vorname') },
-                    { name: 'nachname', value: formData.get('nachname') },
-                    { name: 'telefonnummer', value: formData.get('telefonnummer') },
+                    { name: 'firstname', value: formData.get('firstname') },
+                    { name: 'lastname', value: formData.get('lastname') },
+                    { name: 'phone', value: formData.get('phone') },
                 ].filter((field) => field.value),
                 context: {
                     pageUri: window.location.href,
                     pageName: document.title,
+                    hutk: getCookie('hubspotutk'),
                 },
             };
 
