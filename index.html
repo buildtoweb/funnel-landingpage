@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InLift Media – Instagram Marketing für lokale Unternehmen</title>
     <meta name="description" content="Wir übernehmen Strategie, Content und Ads – damit Sie Kunden oder Mitarbeiter gewinnen, ohne sich selbst darum kümmern zu müssen.">
+    <link rel="icon" type="image/svg+xml" href="images/Logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -830,6 +831,10 @@
                         <input type="text" id="nachname" name="lastname" required>
                     </div>
                     <div class="form-field">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
                         <label for="telefonnummer">Telefonnummer</label>
                         <input type="tel" id="telefonnummer" name="phone" required>
                     </div>
@@ -919,7 +924,10 @@
                 fields: [
                     { name: 'firstname', value: formData.get('firstname') },
                     { name: 'lastname', value: formData.get('lastname') },
+                    { name: 'email', value: formData.get('email') },
                     { name: 'phone', value: formData.get('phone') },
+                    { name: 'lifecyclestage', value: 'lead' },
+                    { name: 'hs_lead_status', value: 'Ad Lead' },
                 ].filter((field) => field.value),
                 context: {
                     pageUri: window.location.href,
