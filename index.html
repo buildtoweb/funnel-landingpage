@@ -137,30 +137,10 @@
             padding: 1.25rem 0;
         }
 
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-icon svg {
-            width: 18px;
-            height: 18px;
-            fill: white;
-        }
-
-        .logo-text {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .logo-text span {
-            color: var(--primary);
+        .logo-image {
+            height: 36px;
+            width: auto;
+            display: block;
         }
 
         /* ===== HERO SECTION ===== */
@@ -386,6 +366,7 @@
             border-radius: 12px;
             padding: 0.75rem 0.9rem;
             font-size: 0.95rem;
+            color: #222222;
             outline: none;
             transition: border 0.2s ease, box-shadow 0.2s ease;
         }
@@ -394,6 +375,11 @@
         .form-field textarea:focus {
             border-color: rgba(139, 30, 45, 0.6);
             box-shadow: 0 0 0 3px rgba(139, 30, 45, 0.15);
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: #9a9a9a;
         }
 
         .form-consent {
@@ -694,12 +680,7 @@
 
     <!-- Logo Header -->
     <header class="logo">
-        <div class="logo-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-        </div>
-        <div class="logo-text">InLift <span>Media</span></div>
+        <img src="images/Logo.svg" alt="InLift Media Logo" class="logo-image">
     </header>
 
     <!-- Hero Section -->
@@ -850,20 +831,8 @@
                         <input type="text" id="nachname" name="nachname" required>
                     </div>
                     <div class="form-field">
-                        <label for="email">E-Mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-field">
-                        <label for="telefonnummer">Telefon</label>
-                        <input type="tel" id="telefonnummer" name="telefonnummer">
-                    </div>
-                    <div class="form-field">
-                        <label for="company">Unternehmen</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-field">
-                        <label for="message">Kurz Ihr Anliegen</label>
-                        <textarea id="message" name="message" rows="3"></textarea>
+                        <label for="telefonnummer">Telefonnummer</label>
+                        <input type="tel" id="telefonnummer" name="telefonnummer" required>
                     </div>
                     <label class="form-consent">
                         <input type="checkbox" id="consent" required>
@@ -932,7 +901,6 @@
                 fields: [
                     { name: 'vorname', value: formData.get('vorname') },
                     { name: 'nachname', value: formData.get('nachname') },
-                    { name: 'email', value: formData.get('email') },
                     { name: 'telefonnummer', value: formData.get('telefonnummer') },
                     { name: 'company', value: formData.get('company') },
                     { name: 'message', value: formData.get('message') },
@@ -963,6 +931,10 @@
             }
         });
     </script>
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147130399.js"></script>
+    <!-- End of HubSpot Embed Code -->
 
 </body>
 </html>
