@@ -851,11 +851,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="/impressum">Impressum</a>
-                <a href="/datenschutz">Datenschutz</a>
-            </div>
-            <p class="footer-copy">© 2026 InLift Media. Alle Rechte vorbehalten.</p>
+
+            <p class="footer-copy">© 2026 InLift Media e.U. Alle Rechte vorbehalten.</p> <a href="inlift.at/impressum">Datenschutz</a>
         </div>
     </footer>
 
@@ -924,9 +921,12 @@
                     leadForm.reset();
                     formSuccess.hidden = false;
                 } else {
+                    const errorText = await response.text();
+                    console.error('HubSpot submission failed:', response.status, errorText);
                     formError.hidden = false;
                 }
             } catch (error) {
+                console.error('HubSpot submission error:', error);
                 formError.hidden = false;
             }
         });
