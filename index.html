@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InLift Media – Instagram Marketing für lokale Unternehmen</title>
+    <meta name="description" content="Wir übernehmen Strategie, Content und Ads – damit Sie Kunden oder Mitarbeiter gewinnen, ohne sich selbst darum kümmern zu müssen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #8b1e2d;
+            --primary-hover: #a02535;
+            --dark: #222222;
+            --muted: #bdbdbd;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --border: #e5e5e5;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: -120px;
+            left: 50%;
+            width: 480px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(139, 30, 45, 0.16), transparent 70%);
+            transform: translateX(-50%);
+            filter: blur(12px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .text-muted {
+            color: var(--muted);
+        }
+
+        .text-accent {
+            color: var(--primary);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight::after {
+            content: "";
+            position: absolute;
+            left: -4px;
+            right: -4px;
+            bottom: 2px;
+            height: 30%;
+            background: rgba(139, 30, 45, 0.12);
+            z-index: -1;
+            border-radius: 6px;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        /* ===== LOGO ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1.25rem 0;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: 1rem;
+            padding-bottom: 2.5rem;
+            background: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(139, 30, 45, 0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .hero-note {
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        /* ===== FORM CONTAINER ===== */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: 0 8px 30px rgba(139, 30, 45, 0.08);
+            backdrop-filter: blur(14px);
+        }
+
+        .cta-stack {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cta-button {
+            width: 100%;
+            border: none;
+            border-radius: 999px;
+            padding: 0.95rem 1.5rem;
+            background: linear-gradient(135deg, #8b1e2d, #b02d3f);
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(139, 30, 45, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px rgba(139, 30, 45, 0.45);
+        }
+
+        .cta-note {
+            font-size: 0.875rem;
+            color: #6d6d6d;
+            text-align: center;
+        }
+
+        /* ===== VIDEO SECTION ===== */
+        .video-section {
+            background: var(--light-bg);
+        }
+
+        .video-label {
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .video-container {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-radius: var(--radius-lg);
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .video-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            color: var(--muted);
+        }
+
+        .play-button {
+            width: 64px;
+            height: 64px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary);
+            margin-left: 3px;
+        }
+
+        .video-note {
+            font-size: 0.875rem;
+            color: #888;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 20, 20, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 520px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            padding: 2rem 1.75rem;
+            position: relative;
+            backdrop-filter: blur(18px);
+        }
+
+        .modal h3 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 0.35rem;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 0.75rem 0.9rem;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: rgba(139, 30, 45, 0.6);
+            box-shadow: 0 0 0 3px rgba(139, 30, 45, 0.15);
+        }
+
+        .form-consent {
+            display: flex;
+            gap: 0.6rem;
+            font-size: 0.82rem;
+            color: #666;
+            align-items: flex-start;
+        }
+
+        .form-consent input {
+            margin-top: 4px;
+        }
+
+        .form-submit {
+            margin-top: 0.5rem;
+        }
+
+        .form-submit button {
+            width: 100%;
+        }
+
+        .form-success,
+        .form-error {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+        }
+
+        .form-success {
+            color: #2b7a3d;
+        }
+
+        .form-error {
+            color: #b02d3f;
+        }
+
+        /* ===== QUALIFICATION SECTION ===== */
+        .qualification {
+            background: var(--white);
+        }
+
+        .qual-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .qual-card.positive {
+            border-left: 3px solid var(--primary);
+        }
+
+        .qual-card.negative {
+            border-left: 3px solid var(--muted);
+        }
+
+        .qual-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .qual-card h3 .icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .qual-card.positive h3 .icon {
+            background: rgba(139, 30, 45, 0.1);
+            color: var(--primary);
+        }
+
+        .qual-card.negative h3 .icon {
+            background: rgba(189, 189, 189, 0.3);
+            color: #888;
+        }
+
+        .qual-list {
+            list-style: none;
+        }
+
+        .qual-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9375rem;
+            color: #555;
+        }
+
+        .qual-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .qual-list li svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .qual-card.positive .qual-list li svg {
+            fill: var(--primary);
+        }
+
+        .qual-card.negative .qual-list li svg {
+            fill: var(--muted);
+        }
+
+        /* ===== TRUST SECTION ===== */
+        .trust-section {
+            background: var(--light-bg);
+        }
+
+        .trust-content {
+            text-align: center;
+        }
+
+        .trust-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+            color: #666;
+            background: var(--white);
+            padding: 0.625rem 1rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+        }
+
+        .trust-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--primary);
+        }
+
+        .testimonial-placeholder {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-placeholder p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .testimonial-author {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* ===== FINAL CTA SECTION ===== */
+        .final-cta {
+            background: var(--white);
+        }
+
+        .final-cta .section-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta .section-header p {
+            font-size: 0.9375rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* ===== RESPONSIVE - TABLET & UP ===== */
+        @media (min-width: 640px) {
+            .container {
+                max-width: 560px;
+                padding: 0 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+
+        /* ===== RESPONSIVE - TABLET ===== */
+        @media (min-width: 768px) {
+            .container.container-wide {
+                max-width: 760px;
+            }
+
+            .qual-cards-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .qual-card {
+                margin-bottom: 0;
+            }
+        }
+
+        /* ===== RESPONSIVE - DESKTOP ===== */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 640px;
+            }
+
+            .container.container-wide {
+                max-width: 880px;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            section {
+                padding: 5rem 0;
+            }
+        }
+
+        /* ===== UTILITY ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo Header -->
+    <header class="logo">
+        <div class="logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+        </div>
+        <div class="logo-text">InLift <span>Media</span></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="text-center">
+                <span class="hero-badge">Für lokale Unternehmen</span>
+                <h1>Warum <span class="highlight">Instagram</span> bei den meisten Unternehmen <span class="highlight">nicht funktioniert</span> – und was stattdessen <span class="highlight">Ergebnisse bringt</span></h1>
+                <p class="hero-subtitle">Wir übernehmen Strategie, Content und Ads – damit Sie Kunden oder Mitarbeiter gewinnen, ohne sich selbst darum kümmern zu müssen.</p>
+                <p class="hero-note">Transparente Analyse. Keine leeren Versprechen.</p>
+            </div>
+
+            <div class="glass-card">
+                <p class="video-label">Kurzes Video: Was wir anders machen – und für wen das sinnvoll ist</p>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Replace with actual video embed:
+                    <iframe src="YOUR_VIDEO_URL" frameborder="0" allowfullscreen></iframe>
+                    -->
+                </div>
+                <p class="video-note">2 Minuten – ohne Verkaufsdruck</p>
+
+                <div class="cta-stack">
+                    <button class="cta-button" type="button" data-open-modal>Erstgespräch vereinbaren</button>
+                    <p class="cta-note">Komplett unverbindlich – wir melden uns mit einer ehrlichen Einschätzung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualification Section -->
+    <section class="qualification">
+        <div class="container container-wide">
+            <h2 class="text-center" style="margin-bottom: 1.5rem;">Für wen dieses Angebot geeignet ist</h2>
+            
+            <div class="qual-cards-wrapper">
+                <div class="qual-card positive">
+                    <h3>
+                        <span class="icon">✓</span>
+                        Geeignet für
+                    </h3>
+                    <ul class="qual-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Unternehmen, die Instagram nicht selbst betreuen wollen</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Dienstleister, die planbar Anfragen oder Bewerbungen wollen</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <span>Betriebe mit klarem regionalem Fokus</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="qual-card negative">
+                    <h3>
+                        <span class="icon">✗</span>
+                        Nicht geeignet für
+                    </h3>
+                    <ul class="qual-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            <span>DIY-Marketer, die alles selbst machen wollen</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            <span>Influencer-Aufbau oder persönliche Marken</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            <span>Hobby-Projekte ohne klares Geschäftsziel</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-content">
+                <h2>Mit wem wir arbeiten</h2>
+                <p>Wir arbeiten mit Unternehmen aus Handwerk, Dienstleistung und lokalen Märkten – dort, wo Instagram wirklich Neukunden und Mitarbeiter bringen kann.</p>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Regionale Fokussierung
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Transparente Prozesse
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Keine Mindestlaufzeit
+                    </div>
+                </div>
+
+                <div class="testimonial-placeholder">
+                    <p>"Endlich jemand, der nicht nur postet, sondern mitdenkt. Nach 3 Monaten haben wir konstant Anfragen über Instagram."</p>
+                    <span class="testimonial-author">– Lokaler Handwerksbetrieb, Österreich</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unverbindliche Instagram-Analyse anfragen</h2>
+                <p>Kein Verkaufsgespräch. Wir prüfen, ob Instagram für Ihr Unternehmen sinnvoll ist.</p>
+            </div>
+
+            <div class="cta-stack">
+                <button class="cta-button" type="button" data-open-modal>Erstgespräch vereinbaren</button>
+                <p class="cta-note">Komplett unverbindlich – wir prüfen, ob Instagram wirklich Sinn macht.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Form -->
+    <div class="modal-overlay" id="leadModal" aria-hidden="true">
+        <div class="modal">
+            <button class="modal-close" type="button" aria-label="Modal schließen" data-close-modal>×</button>
+            <h3>Unverbindliches Erstgespräch</h3>
+            <p>Wir melden uns mit einer ehrlichen Einschätzung – kein Verkaufsgespräch.</p>
+
+            <form id="leadForm">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="vorname">Vorname</label>
+                        <input type="text" id="vorname" name="vorname" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="nachname">Nachname</label>
+                        <input type="text" id="nachname" name="nachname" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="telefonnummer">Telefon</label>
+                        <input type="tel" id="telefonnummer" name="telefonnummer">
+                    </div>
+                    <div class="form-field">
+                        <label for="company">Unternehmen</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Kurz Ihr Anliegen</label>
+                        <textarea id="message" name="message" rows="3"></textarea>
+                    </div>
+                    <label class="form-consent">
+                        <input type="checkbox" id="consent" required>
+                        <span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verarbeitet werden. Kein Spam.</span>
+                    </label>
+                </div>
+                <div class="form-submit">
+                    <button class="cta-button" type="submit">Erstgespräch anfragen</button>
+                </div>
+                <div class="form-success" id="formSuccess" hidden>Danke! Wir melden uns kurzfristig.</div>
+                <div class="form-error" id="formError" hidden>Es gab ein Problem. Bitte erneut versuchen.</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/impressum">Impressum</a>
+                <a href="/datenschutz">Datenschutz</a>
+            </div>
+            <p class="footer-copy">© 2026 InLift Media. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('leadModal');
+        const openButtons = document.querySelectorAll('[data-open-modal]');
+        const closeButtons = document.querySelectorAll('[data-close-modal]');
+        const leadForm = document.getElementById('leadForm');
+        const formSuccess = document.getElementById('formSuccess');
+        const formError = document.getElementById('formError');
+
+        const openModal = () => {
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+        };
+
+        openButtons.forEach((button) => button.addEventListener('click', openModal));
+        closeButtons.forEach((button) => button.addEventListener('click', closeModal));
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        leadForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            formSuccess.hidden = true;
+            formError.hidden = true;
+
+            const formData = new FormData(leadForm);
+            const payload = {
+                fields: [
+                    { name: 'vorname', value: formData.get('vorname') },
+                    { name: 'nachname', value: formData.get('nachname') },
+                    { name: 'email', value: formData.get('email') },
+                    { name: 'telefonnummer', value: formData.get('telefonnummer') },
+                    { name: 'company', value: formData.get('company') },
+                    { name: 'message', value: formData.get('message') },
+                ],
+                context: {
+                    pageUri: window.location.href,
+                    pageName: document.title,
+                },
+            };
+
+            try {
+                const response = await fetch('https://api.hsforms.com/submissions/v3/integration/submit/147130399/389b4bdd-8768-4b37-8e3d-ba5a4a6b90c9', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                if (response.ok) {
+                    leadForm.reset();
+                    formSuccess.hidden = false;
+                } else {
+                    formError.hidden = false;
+                }
+            } catch (error) {
+                formError.hidden = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
