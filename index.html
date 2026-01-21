@@ -690,7 +690,6 @@
                 <span class="hero-badge">Für lokale Unternehmen</span>
                 <h1>Warum <span class="highlight">Instagram</span> bei den meisten Unternehmen <span class="highlight">nicht funktioniert</span> – und was stattdessen <span class="highlight">Ergebnisse bringt</span></h1>
                 <p class="hero-subtitle">Wir übernehmen Strategie, Content und Ads – damit Sie Kunden oder Mitarbeiter gewinnen, ohne sich selbst darum kümmern zu müssen.</p>
-                <p class="hero-note">Transparente Analyse. Keine leeren Versprechen.</p>
             </div>
 
             <div class="glass-card">
@@ -851,8 +850,25 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="footer-links">
+                <a href="https://inlift.at/datenschutz">Datenschutz</a>
+            </div>
+            <p class="footer-copy">© 2026 InLift Media e.U. Alle Rechte vorbehalten.</p>
+            <!-- Anfang des HubSpot-Code-Snippets -->
+            <button type="button" id="hs_show_banner_button"
+            style="background-color: #8b1e2d; border: 1px solid #8b1e2d;
+                   border-radius: 3px; padding: 10px 16px; text-decoration: none; color: #fff;
+                   font-family: inherit; font-size: inherit; font-weight: normal; line-height: inherit;
+                   text-align: left; text-shadow: none;"
+            onClick="(function(){
+              var _hsp = window._hsp = window._hsp || [];
+              _hsp.push(['showBanner']);
+            })()"
+            >
+            Cookie-Einstellungen
+            </button>
 
-            <p class="footer-copy">© 2026 InLift Media e.U. Alle Rechte vorbehalten.</p> <a href="inlift.at/impressum">Datenschutz</a>
+            <!-- Ende des HubSpot-Code-Snippets -->
         </div>
     </footer>
 
@@ -899,9 +915,7 @@
                     { name: 'vorname', value: formData.get('vorname') },
                     { name: 'nachname', value: formData.get('nachname') },
                     { name: 'telefonnummer', value: formData.get('telefonnummer') },
-                    { name: 'company', value: formData.get('company') },
-                    { name: 'message', value: formData.get('message') },
-                ],
+                ].filter((field) => field.value),
                 context: {
                     pageUri: window.location.href,
                     pageName: document.title,
@@ -935,6 +949,7 @@
     <!-- Start of HubSpot Embed Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147130399.js"></script>
     <!-- End of HubSpot Embed Code -->
+
 
 </body>
 </html>
